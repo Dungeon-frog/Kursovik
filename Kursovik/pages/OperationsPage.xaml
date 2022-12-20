@@ -1,0 +1,37 @@
+﻿<Page x:Class="Kursovik.pages.OperationsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kursovik.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OperationsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Click="OnDocCreate" Padding="10 5" Content="Создать документ"/>
+            <TextBox Margin="10 0" Width="150"/>
+            <TextBlock VerticalAlignment="Center" Text="С"/>
+            <DatePicker Margin="10 0"/>
+            <TextBlock VerticalAlignment="Center" Text="По"/>
+            <DatePicker Margin="10 0"/>
+            <Button Width="100" Content="Поиск"/>
+        </StackPanel>
+        <DataGrid MouseDoubleClick="dataList_MouseDoubleClick" Grid.Row="1" IsReadOnly="True" x:Name="dataList" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Path=TypeStr}"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Path=Status}"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Path=Sum}"/>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Provider}"/>
+                <DataGridTextColumn Header="Дата (Док)" Binding="{Binding Path=DateDoc}"/>
+                <DataGridTextColumn Header="Дата (Факт)" Binding="{Binding Path=DateFact}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
